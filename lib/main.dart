@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   runApp(WeatherInfoApp());
@@ -29,11 +30,21 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
   String _weatherCondition = '';
 
   void _fetchWeather() {
-    // Simulate fetching weather data (to be implemented later)
+    // Simulate fetching weather data
     setState(() {
       _cityName = _controller.text;
-      _temperature = '${(15 + (30 - 15) * (0.5)).toStringAsFixed(1)} °C'; // Example temp
-      _weatherCondition = 'Sunny'; // Example condition
+
+      // Generate a random temperature between 15 and 30
+      int minTemp = 15;
+      int maxTemp = 30;
+      int randomTemp = Random().nextInt(maxTemp - minTemp + 1) + minTemp;
+
+      // Randomly select a weather condition
+      List<String> conditions = ['Sunny', 'Cloudy', 'Rainy'];
+      String randomCondition = conditions[Random().nextInt(conditions.length)];
+
+      _temperature = '$randomTemp °C';
+      _weatherCondition = randomCondition;
     });
   }
 
