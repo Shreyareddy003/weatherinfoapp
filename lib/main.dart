@@ -72,14 +72,17 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
               child: Text('Fetch Weather'),
             ),
             SizedBox(height: 20),
+            // Display the entered city name
             Text(
               'City: $_cityName',
               style: TextStyle(fontSize: 20),
             ),
+            // Display the generated temperature
             Text(
               'Temperature: $_temperature',
               style: TextStyle(fontSize: 20),
             ),
+            // Display the weather condition
             Text(
               'Condition: $_weatherCondition',
               style: TextStyle(fontSize: 20),
